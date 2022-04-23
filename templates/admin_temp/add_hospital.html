@@ -1,0 +1,26 @@
+{% extends 'admin_temp/admin_home.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="card-body">
+<form method="post">
+    {% csrf_token %}
+    <h5>Add Hospital</h5>
+    <div class="form-row-last">
+    {{form|crispy}}
+        <br>
+    <input type="submit" name="submit" class="submit" value="submit">
+    </div>
+    {% for message in messages %}
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+</form>
+</div>
+
+
+{% endblock %}
+
+
+
